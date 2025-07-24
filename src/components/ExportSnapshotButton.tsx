@@ -31,7 +31,7 @@ export default function ExportSnapshotButton() {
 const downloadImage = (canvasData: any) => {
   // do something
 };
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
   const getVolume = (entry: any) => entry.volume ?? entry.size ?? 0;
   const totalBidVolume = bids.reduce((sum, b) => sum + getVolume(b), 0);
   const totalAskVolume = asks.reduce((sum, a) => sum + getVolume(a), 0);

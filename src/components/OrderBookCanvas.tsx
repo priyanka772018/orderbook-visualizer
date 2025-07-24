@@ -14,7 +14,7 @@ function Bar({
   isBid,
   index,
   colorScale,
-}: {
+}: {// eslint-disable-next-line @typescript-eslint/no-explicit-any
   entry: any;
   isBid: boolean;
   index: number;
