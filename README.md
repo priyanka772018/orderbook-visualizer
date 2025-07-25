@@ -8,7 +8,47 @@ First, run the development server:
 npm run dev
 # or
 yarn dev
-# or
+# or# 📊 Orderbook Depth 3D Visualizer
+
+A real-time interactive 3D cryptocurrency orderbook visualization tool built using **Next.js**, **Three.js**, and **React Three Fiber**. This app visualizes price, quantity, and time across multiple venues using dynamic 3D bars and heatmaps. It supports **dark/light mode**, real-time updates, and pressure zone analysis.
+
+## 🚀 Features
+
+- 🔁 Real-time 3D orderbook with rotation and zoom
+- 🔴 Ask (red) and 🟢 Bid (green) bars representing depth
+- 🎛️ Manual camera controls: zoom, pan, rotate
+- 📈 Cumulative volume by price level
+- 🔥 Pressure zone detection and heatmap overlay
+- 🏷️ Venue filtering (Binance, OKX, etc.)
+- 🌓 Light/Dark theme toggle
+- 📊 Order flow analytics panel
+- 📱 Fully responsive (mobile, tablet, desktop)
+
+## 🧠 Tech Stack
+
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Three.js](https://threejs.org/) via [React Three Fiber](https://docs.pmnd.rs/react-three-fiber)
+- Zustand for state management
+- TailwindCSS for styling
+- Chart.js & D3 for analytics overlays
+
+---
+
+## 🛠️ Getting Started
+
+### Prerequisites
+
+- Node.js >= 18.x
+- npm or yarn
+
+### Installation
+
+```bash
+git clone https://github.com/priyanka772018/orderbook-visualizer.git
+cd orderbook-visualizer
+npm install
+
 pnpm dev
 # or
 bun dev
