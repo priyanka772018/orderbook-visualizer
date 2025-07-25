@@ -5,6 +5,7 @@ import { saveAs } from 'file-saver';
 import html2canvas from 'html2canvas';
 import React from 'react';
 
+
 type ButtonProps = {
   children: React.ReactNode;
   onClick?: () => void;
@@ -27,10 +28,10 @@ export default function ExportSnapshotButton() {
   const imbalance = useOrderBookStore((state) => state.imbalance || 0);
   const selectedVenues = useOrderBookStore((state) => state.selectedVenues || []);
   const venue = selectedVenues.length > 0 ? selectedVenues[0] : 'Unknown';
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const downloadImage = (canvasData: any) => {
-  // do something
-};
+
+// const downloadImage = (canvasData: any) => {
+//   // do something
+// };
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const getVolume = (entry: any) => entry.volume ?? entry.size ?? 0;
   const totalBidVolume = bids.reduce((sum, b) => sum + getVolume(b), 0);
