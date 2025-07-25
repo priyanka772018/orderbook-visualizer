@@ -7,20 +7,16 @@ import TooltipOverlay from "@/components/TooltipOverlay";
 import { scaleLinear } from "d3-scale";
 import * as THREE from "three";
 import { useMemo } from "react";
+import { OrderBookEntry } from "@/types";
 
-
-function Bar({
-  entry,
-  isBid,
-  index,
-  colorScale,
-}: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  entry: any;
+type BarProps = {
+  entry: OrderBookEntry;
   isBid: boolean;
   index: number;
   colorScale: (val: number) => string;
-}) {
+};
+
+function Bar({ entry, isBid, index, colorScale }: BarProps) {
   const setTooltip = useOrderBookStore((s) => s.setTooltip);
 
   const hexColor = colorScale(entry.size);
@@ -75,13 +71,13 @@ function Scene() {
   const bidColorScale = useMemo(() => {
     return scaleLinear<string>()
       .domain([minBidSize, maxBidSize])
-      .range(["#ccffcc", "#006600"]); // 💚 soft green to dark green
+      .range(["#ccffcc", "#006600"]); // light to dark green
   }, [minBidSize, maxBidSize]);
 
   const askColorScale = useMemo(() => {
     return scaleLinear<string>()
       .domain([minAskSize, maxAskSize])
-      .range(["#ffcccc", "#660000"]); // ❤️ soft red to dark red
+      .range(["#ffcccc", "#660000"]); // light to dark red
   }, [minAskSize, maxAskSize]);
 
   return (
@@ -122,7 +118,6 @@ export default function OrderBookCanvas() {
         <Scene />
       </Canvas>
       <TooltipOverlay />
-
     </div>
   );
 }
