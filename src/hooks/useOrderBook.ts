@@ -28,18 +28,19 @@ export const useOrderBook = () => {
         price: parseFloat((Math.random() * 100).toFixed(2)),
         size: parseFloat((Math.random() * 5).toFixed(2)),
         venue: venues[Math.floor(Math.random() * venues.length)],
+        side: 'bid',
       }));
 
       const randomAsks: OrderBookEntry[] = Array.from({ length: 10 }, () => ({
         price: parseFloat((Math.random() * 100).toFixed(2)),
         size: parseFloat((Math.random() * 5).toFixed(2)),
         venue: venues[Math.floor(Math.random() * venues.length)],
+        side: 'ask',
       }));
 
       const markedBids = markPressureZones(randomBids);
       const markedAsks = markPressureZones(randomAsks);
 
-      // ✅ Calculate bid/ask imbalance ratio
       const bidTotal = markedBids.reduce((sum, entry) => sum + entry.size, 0);
       const askTotal = markedAsks.reduce((sum, entry) => sum + entry.size, 0);
       const imbalance = askTotal === 0 ? 1 : bidTotal / askTotal;
